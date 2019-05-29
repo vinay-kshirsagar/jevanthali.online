@@ -1,0 +1,1 @@
+ssh -i "zomatoapp-server.pem" ubuntu@ec2-13-233-199-43.ap-south-1.compute.amazonaws.com

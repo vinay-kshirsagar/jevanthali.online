@@ -1,0 +1,14 @@
+.center {
+    display: block;
+    margin-left: 5;
+    margin-right: 5;
+    width: 100%;
+    align-content: Left; 
+  }
+
+
+  agm-map {
+    height:100%;
+    width: 175%;
+    background-color: lightblue;
+   }

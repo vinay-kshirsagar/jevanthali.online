@@ -1,0 +1,29 @@
+<div class="container" style="text-align:center">
+  <div class="row" style="text-align:center">
+    <div class="col-md-8 text-center font-weight-bold" style="font: size 12px">
+      <h3> Restauants Near You </h3>
+    </div>
+    <div class="col-md-4 alert alert-primary " style="font: size 12px">
+      Location : {{location.title}}, {{location.city_name}}.
+    </div>
+    <br><br>
+  </div>
+
+  <div class="row " style="text-align:center" *ngIf="restaurantList.length>0">
+    <div *ngFor="let restro of restaurantList" class="col-md-3">
+      <div class="card-deck ">
+        <div class="card mt-5" style="width: 18rem;">
+          <img class="card-img-top" src="{{restro.restaurant.thumb}}" alt="Image Not Available">
+          <div class="card-body">
+            <h5 class="card-title">{{restro.restaurant.name| uppercase}}</h5>
+            <p class="card-text">Cuisines:{{restro.restaurant.cuisines}}</p>
+            <p class="card-text">Address : {{restro.restaurant.location.address}}</p>
+          </div>
+          <div class="card-footer">
+            <a [routerLink]="['/restaurant',restro.restaurant.id]" class="btn btn-primary">Get Restauant details</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div><br><br>

@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="mx-auto" style="width: 800px;">
+    <form class="form-inline my-2 mx-2 my-lg-0">
+      <input class="form-control m-2" type="text" placeholder="Restauant Name" [(ngModel)]="query" name="query">
+      <input class="form-control m-2" type="text" placeholder="city eg. pune" [(ngModel)]="location" name="location">
+      <!-- <input class="form-control m-2" type="text" placeholder="Maximum Count" [(ngModel)]="count" name="count">-->
+      <button class="btn btn-primary m-2" type="button" (click)="SearchFunction()">Search</button>
+    </form>
+  </div>
+</div>
+<div class="container" style="text-align:center">
+  <div class="row " style="text-align:center" *ngIf="restaurantList.length>0">
+    <div *ngFor="let restro of restaurantList" class="col-md-3">
+      <div class="card-deck ">
+        <div class="card mt-5" style="width: 18rem;">
+          <img class="card-img-top" src="{{restro.restaurant.thumb}}" alt="Image Not Available">
+          <div class="card-body">
+            <h5 class="card-title">{{restro.restaurant.name| uppercase}}</h5>
+            <p class="card-text">Cuisines:{{restro.restaurant.cuisines}}</p>
+            <p class="card-text">Address : {{restro.restaurant.location.address}}</p>
+          </div>
+          <div class="card-footer">
+            <a [routerLink]="['/restaurant',restro.restaurant.id]" class="btn btn-primary">Get Restauant details</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div div class="row " style="text-align:center" *ngIf="restaurantList.lengt===0">
+    <p>
+      NO RESTAURANT FOUND 
+    </p>
+
+  </div>
+</div>

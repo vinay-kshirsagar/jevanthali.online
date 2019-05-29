@@ -1,0 +1,47 @@
+<div class="container alert-success" style="text-align:center">
+  <div class="container text-danger">
+    <h3>{{restauantdetails.name}}</h3>
+  </div><br>
+
+
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <img src={{restauantdetails.featured_image}} class="center rounded " alt="Responsive image">
+      </div>
+      <div class="col ">
+        <div class="testroinfo text-body m-2 p-2">
+          <p>Cuisines : {{restauantdetails.cuisines}} </p>
+          <p>Average cost for Two Person : Rs. {{restauantdetails.average_cost_for_two}} </p>
+        </div>
+      </div>
+    </div>
+  </div><br>
+  <div class="container">
+    <div class="container text-primary">
+      <h5>Reviews</h5>
+    </div>
+    <div class="row container " *ngIf="restaurantreviews.length>0">
+      <div *ngFor="let review of restaurantreviews">
+        <p>{{review.review.review_text}}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-4 m-5 p-5 ">
+        <h3>Address:</h3>
+        <p>
+          {{restauantdetails.location.address}}
+        </p>
+      </div>
+      <div class="col-sm-4 m-2 p-2">
+        <agm-map [latitude]="latitude" [longitude]="longitude" [zoom]="zoom">
+          <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
+        </agm-map>
+      </div>
+    </div>
+  </div>
+
+</div>
